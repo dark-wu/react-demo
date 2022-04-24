@@ -17,7 +17,13 @@ function formatName(user) {
 
 const element = <div className="index-text">Hello, { formatName(user) }</div>;
 
-
+const FancyButton = React.forwardRef((props, ref) => (
+    <button ref={ref} className="FancyButton">
+      {props.children}
+    </button>
+));
+const ref = React.createRef();
+  
 
 function tick() {
     function handleClick() {
@@ -33,7 +39,9 @@ function tick() {
             <Clock />
             <Toggle />
             <Login />
-            
+
+            <FancyButton ref={ref}>Click me!</FancyButton>
+
         </div>
     )
     ReactDOM.createRoot(
